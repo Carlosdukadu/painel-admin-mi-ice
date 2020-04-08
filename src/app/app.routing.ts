@@ -46,7 +46,7 @@ export const routes: Routes = [{
   children: [
     {
       path: '',
-      loadChildren: () => import('./tables/tables.module').then(m => m.TablesModule)
+      loadChildren: () => import('./Produtos/tables.module').then(m => m.TablesModule)
     }
   ]
 }, {
