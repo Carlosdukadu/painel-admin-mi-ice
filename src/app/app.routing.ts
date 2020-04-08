@@ -24,7 +24,7 @@ export const routes: Routes = [{
     },
     {
       path: 'ui-elements',
-      loadChildren: () => import('./ui-elements/ui-elements.module').then(m => m.UiElementsModule),
+      loadChildren: () => import('./Clientes/ui-elements.module').then(m => m.UiElementsModule),
       data: {
         title: 'UI Elements'
       },
