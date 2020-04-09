@@ -22,16 +22,10 @@ export const routes: Routes = [{
         title: 'Dashboard Page'
       },
     },
-    {
-      path: 'ui-elements',
-      loadChildren: () => import('./Clientes/ui-elements.module').then(m => m.UiElementsModule),
-      data: {
-        title: 'UI Elements'
-      },
-    },
+    
     {
       path: 'forms',
-      loadChildren: () => import('./forms/forms.module').then(m => m.FormsModule),
+      loadChildren: () => import('./clientes/forms.module').then(m => m.FormsModule),
       data: {
         title: 'Form Page'
       },
