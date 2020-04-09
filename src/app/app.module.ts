@@ -8,6 +8,8 @@ import { AppRoutingModule, routes } from "./app.routing";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { HeaderComponent } from "./shared/header/header.component";
 import { NavigationComponent } from "./shared/navigation/navigation.component";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,9 @@ import { NavigationComponent } from "./shared/navigation/navigation.component";
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
     AppRoutingModule,
     RouterModule.forRoot(routes, { useHash: true })
   ],

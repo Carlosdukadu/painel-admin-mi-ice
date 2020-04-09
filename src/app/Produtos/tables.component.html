@@ -9,7 +9,7 @@
             <div class="xs-mt-10 xs-mb-10  ">
               <div class="row">
                 <div class="col-md-8">
-                  <form class="form-horizontal">
+                  <form [formGroup]="formProduto" class="form-horizontal" (ngSubmit)="enviarProduto()">
                    
                     
 
@@ -18,7 +18,8 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">Nome Produto</label>
                         <div class="col-sm-9">
-                          <input id="form-control-5" class="form-control" type="email"
+                          <input id="form-control-5" class="form-control"
+                          formControlName = "nome" type="email"
                                  placeholder="Nome Produto">
                         </div>
                       </div>
@@ -41,7 +42,9 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-8">Descrição do produto</label>
                         <div class="col-sm-9">
-                          <textarea id="form-control-8" class="form-control" rows="3"></textarea>
+                          <textarea id="form-control-8" class="form-control"
+                          formControlName = "descricao"
+                           rows="3"></textarea>
                         </div>
                       </div>
                     </div>
@@ -49,10 +52,10 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-9">Categoria</label>
                         <div class="col-sm-9">
-                          <select id="form-control-9" class="form-control">
-                            <option value="corporate" selected disabled>Selecionar categoria</option>
-                            <option value="corporate">Gelo Terapeutico</option>
-                            <option value="creative">Gelo para Consumo</option>
+                          <select id="form-control-9" class="form-control" formControlName = "categoria">
+                            <option value="" selected disabled>Selecionar categoria</option>
+                            <option value="2">Gelo Terapeutico</option>
+                            <option value="3">Gelo para Consumo</option>
                           </select>
                         </div>
                       </div>
@@ -65,7 +68,7 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-11">Selecionar imagem</label>
                         <div class="col-sm-9">
-                          <input id="form-control-11" type="file" accept="image/*" multiple="multiple">
+                          <input id="form-control-11" type="file" accept="image/*" multiple="multiple" formControlName = "imagem">
                           <p class="help-block">
                             <small>Um número ilimitado de arquivos pode ser carregado para este campo. Tipos permitidos: png gif jpg jpeg.
 
@@ -80,13 +83,13 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">VL Produto</label>
                         <div class="col-sm-4 col-md-3">
-                          <input id="form-control-5" class="form-control" type="number"
+                          <input id="form-control-5" class="form-control" formControlName = "precoCheio" type="number"
                                  placeholder="Valor Produto R$">
                         </div>
 
                         <label class="col-sm-2 control-label" for="form-control-5">VL c/ Desconto</label>
                         <div class="col-sm-4 col-md-3">
-                          <input id="form-control-5" class="form-control" type="number"
+                          <input id="form-control-5" class="form-control" formControlName = "precoDesconto" type="number"
                                  placeholder="Valor com desconto R$">
                         </div>
                       </div>
