@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'app/services/service.service';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { Produto } from 'app/Models/Produto';
 
 @Component({
   selector: 'app-tables',
@@ -13,9 +14,11 @@ export class TablesComponent implements OnInit {
   }
 
   formProduto: FormGroup;
+  produtos: any
 
   constructor(private service: ServiceService, private fb: FormBuilder) {
     this.formProduto = this.adicionarProduto()
+    this.buscarProdutos()
   }
 
   adicionarProduto(): FormGroup {
@@ -31,10 +34,26 @@ export class TablesComponent implements OnInit {
 
   enviarProduto() {
     console.log(this.formProduto.value);
-    
+
     this.service.adcProdutos(this.formProduto.value).subscribe((data) => {
       alert("Produto adicionado com sucesso")
       this.formProduto.reset()
     })
+  }
+
+  buscarProdutos() {
+    this.service.buscarProdutos().subscribe((produtos) => {
+      this.produtos = produtos;
+    })
+  }
+
+  removerProduto(idProduto) {
+    let ctz = confirm("O Produto sera deletado permanentemente")
+    if(ctz){
+      this.service.removerProduto(idProduto).subscribe(() => {
+        alert("Produto Removido com sucesso")
+        location.reload()
+      })
+    }
   }
 }
