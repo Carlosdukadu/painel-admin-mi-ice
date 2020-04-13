@@ -73,7 +73,7 @@
                               png gif jpg jpeg.
 
                             </small>
-                          </  p>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -157,6 +157,7 @@
                               <th>Descrição</th>
                               <th>Vl_Produto</th>
                               <th>VL_c/_desconto</th>
+                              <th>Categoria</th>
                               <th style="width: 5%"></th>
                             </tr>
                           </thead>
@@ -185,6 +186,8 @@
                                       value="Apagar Campos" (click)="removerProduto(produto.idProduto)">EXCLUIR</button></i>
                                 </a>
                               </td>
+                              <td>{{produto.categoria}}</td>
+
                             </tr>
                           </tbody>
                         </table>

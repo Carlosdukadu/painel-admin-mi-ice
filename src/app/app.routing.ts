@@ -36,7 +36,14 @@ export const routes: Routes = [{
       data: {
         title: 'Pedidos Page'
       },
-    }
+    },
+    {
+      path: 'categoria',
+      loadChildren: () => import('./categoria/categoria.module').then(m => m.CategoriaModule),
+      data: {
+        title: 'Categoria Page'
+      },
+    },
   ]
 
   
