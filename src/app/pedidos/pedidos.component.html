@@ -2,21 +2,18 @@
 
 
         
-                  
-                    
-
-
+              
 
 
 
 <div style="margin-left: 50px;" class="" id="">
     <div style="margin-left: 50px;" class="container-fluid">
       <div style="margin-left: 50px;" class="row row-stat">
-        <div style="margin-left: 50px;" class="col-sm-10">
+        <div style="margin-left: 50px;" class="col-sm-12">
           <div class="row">
             <div class="col-md-12">
           <div class="panel panel-default panel-table">
-            <div  class="panel-heading panel-heading-no-divider"><p style="font-size: 25px;" >Tabela Cliente</p> <h5   class="panel-subtitle">Caso conste alguma inconsistência que <br>
+            <div  class="panel-heading panel-heading-no-divider"><p style="font-size: 25px;" >Tabela Pedidos</p> <h5   class="panel-subtitle">Caso conste alguma inconsistência que <br>
               não seja possível alterar, entre em contato com o suporte.</h5></div>
             
   
@@ -25,7 +22,7 @@
                 <div class="sidebar-search hidden-sm hidden-md hidden-lg" style="width: 500px;">
                   <!-- input-group -->
                   <!-- <h5 style="margin-bottom: -20px;" class="p-2">Pesquisar Cliente:</h5> -->
-                  <small  class="text-muted p-3">Pesquise ultilizando ID_Cliente, Endereço ou e-mail</small>
+                  <small  class="text-muted p-3">Pesquise ultilizando ID_Cliente, ID_Pedido ou DT_Pedido</small>
                   <div style="margin-top: 10px;" class="input-group custom-search-form">
                     <input type="text" class="form-control" placeholder="Pesquisar cliente...">
                     <span class="input-group-btn">
@@ -40,123 +37,135 @@
                     <thead>
                       <tr>
                         <th style="width: 32px"></th>
-                        <th>Name</th>
-                        <th>Endereço</th>
-                        <th>CPF</th>
-                        <th>Data Nascimento</th>
-                        <th>E-mail</th>
-                        <th>Telefone</th>
+                        <!-- ID_PEDIDO  	ID_CLIENTE  	DT_PEDIDO  	ID_ENDERECO  	DS_FORMAPGTO  	VL_FRETE  	VL_TOTAL   -->
+
+                        <th>ID_PEDIDO</th>
+                        <th>ID_CLIENTE</th>
+                        <th>DT_PEDIDO</th>
+                        <th>ID_ENDERECO</th>
+                        <th>DS_FORMAPGTO</th>
+                        <th>VL_FRETE</th>
+                        <th>VL_TOTAL</th>
+                        <th>STATUS</th>
                         <th style="width: 5%"></th>
                       </tr>
                     </thead>
                     <tbody>
   
-                      <!-- Item 1 lista Produtos -->
+                      <!-- Item 1 lista Pedidos -->
                       <tr>
                         <td>
                           <img class="non-responsive img-circle" src="http://via.placeholder.com/150x150" alt="" width="32" height="32">
                         </td>
-                        <td>Arthur Oliveira Shutz</td>
-                        <td> Rua Brasil 1545, Centro
-    
+                        <td>2020157</td>
+                        <td> 10025
                           <br>
-                          <small class="text-muted">00040-213</small>
+                          <small class="text-muted">Arthur Ferreira Souza</small>
                         </td>
                         <td>
-                          <span class="flag-icon flag-icon-us">154125487-95</span>
+                          <span class="flag-icon flag-icon-us">13/04/2020</span>
                         </td>
-                        <td>01-02-2000</td>
+                        <td>250</td>
                         
-                        <td>email@email.com</td>
-                        <td>11-4522-5555</td>
-  
-                        <td class="actions">
+                        <td>Cartão de crédito</td>
+                        <td>R$15</td>
+                        <td>R$280</td>
+                        <td>Preparando p/ Envio <br>
                           <!-- <a href=""> -->
-                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px;" class="btn btn-space btn-danger " type="" value="">EXCLUIR</button></i>
+                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px; width: 150px; height: 40px;" class="btn btn-space btn-danger" type="" value="">Alterar Status</button></i>
                           <!-- </a> -->
                         </td>
+  
+                        <!-- <td class="actions">
+                          <a href="">
+                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px; width: 20px;" class="btn btn-space btn-danger" type="" value="">Alterar Status</button></i>
+                          </a>
+                        </td> -->
                         
                       </tr>
   
-                      <!-- Item 2 lista Produtos -->
+                      <!-- Item 2 lista Pedidos -->
                       <tr>
                         <td>
                           <img class="non-responsive img-circle" src="http://via.placeholder.com/150x150" alt="" width="32" height="32">
                         </td>
-                        <td>Arthur Oliveira Shutz</td>
-                        <td> Rua Brasil 1545, Centro
-    
+                        <td>2020157</td>
+                        <td> 10025
                           <br>
-                          <small class="text-muted">00040-213</small>
+                          <small class="text-muted">Arthur Ferreira Souza</small>
                         </td>
                         <td>
-                          <span class="flag-icon flag-icon-us">154125487-95</span>
+                          <span class="flag-icon flag-icon-us">13/04/2020</span>
                         </td>
-                        <td>01-02-2000</td>
+                        <td>250</td>
                         
-                        <td>email@email.com</td>
-                        <td>11-4522-5555</td>
-  
-                        <td class="actions">
+                        <td>Cartão de crédito</td>
+                        <td>R$15</td>
+                        <td>R$280</td>
+                        <td>Entregue <br>
                           <!-- <a href=""> -->
-                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px;" class="btn btn-space btn-danger " type="" value="">EXCLUIR</button></i>
+                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px; width: 150px; height: 40px;" class="btn btn-space btn-danger" type="" value="">Alterar Status</button></i>
                           <!-- </a> -->
                         </td>
+  
+
                         
                       </tr>
   
   
-                      <!-- Item 3 lista Produtos -->
+                      <!-- Item 3 lista Pedidos -->
                       <tr>
                         <td>
                           <img class="non-responsive img-circle" src="http://via.placeholder.com/150x150" alt="" width="32" height="32">
                         </td>
-                        <td>Arthur Oliveira Shutz</td>
-                        <td> Rua Brasil 1545, Centro
-    
+                        <td>2020157</td>
+                        <td> 10025
                           <br>
-                          <small class="text-muted">00040-213</small>
+                          <small class="text-muted">Arthur Ferreira Souza</small>
                         </td>
                         <td>
-                          <span class="flag-icon flag-icon-us">154125487-95</span>
+                          <span class="flag-icon flag-icon-us">13/04/2020</span>
                         </td>
-                        <td>01-02-2000</td>
+                        <td>250</td>
                         
-                        <td>email@email.com</td>
-                        <td>11-4522-5555</td>
-  
-                        <td class="actions">
+                        <td>Cartão de crédito</td>
+                        <td>R$15</td>
+                        <td>R$280</td>
+                        <td>Concluido <br>
                           <!-- <a href=""> -->
-                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px;" class="btn btn-space btn-danger " type="" value="">EXCLUIR</button></i>
+                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px; width: 150px; height: 40px;" class="btn btn-space btn-danger" type="" value="">Alterar Status</button></i>
                           <!-- </a> -->
                         </td>
+  
+
                         
                       </tr>
   
-                      <!-- Item 4 lista Produtos -->
+                      <!-- Item 4 lista Pedidos -->
                       <tr>
                         <td>
                           <img class="non-responsive img-circle" src="http://via.placeholder.com/150x150" alt="" width="32" height="32">
                         </td>
-                        <td>Arthur Oliveira Shutz</td>
-                        <td> Rua Brasil 1545, Centro
-    
+                        <td>2020157</td>
+                        <td> 10025
                           <br>
-                          <small class="text-muted">00040-213</small>
+                          <small class="text-muted">Arthur Ferreira Souza</small>
                         </td>
                         <td>
-                          <span class="flag-icon flag-icon-us">154125487-95</span>
+                          <span class="flag-icon flag-icon-us">13/04/2020</span>
                         </td>
-                        <td>01-02-2000</td>
+                        <td>250</td>
                         
-                        <td>email@email.com</td>
-                        <td>11-4522-5555</td>
-  
-                        <td class="actions">
+                        <td>Cartão de crédito</td>
+                        <td>R$15</td>
+                        <td>R$280</td>
+                        <td>Processando pagamento <br>
                           <!-- <a href=""> -->
-                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px;" class="btn btn-space btn-danger " type="" value="">EXCLUIR</button></i>
+                            <i class="zmdi zmdi-delete"><button style="margin-right: 10px; width: 150px; height: 40px;" class="btn btn-space btn-danger" type="" value="">Alterar Status</button></i>
                           <!-- </a> -->
                         </td>
+  
+
                         
                       </tr>
   

@@ -9,6 +9,10 @@ export class ServiceService {
 
   constructor(public http: HttpClient) { }
 
+  buscarProdutos(){
+    return this.http.get("api/produto/lista")
+  }
+
   public adcProdutos(p: Produto){
     let produtoNovo = {
       nome: p.nome,
@@ -20,6 +24,10 @@ export class ServiceService {
       precoCheio: p.precoCheio,
       precoDesconto: p.precoDesconto
     }
-  return this.http.post("http://localhost:8080/ecommerce/criar-produto", produtoNovo)
+  return this.http.post("api/criar-produto", produtoNovo)
+  }
+
+  removerProduto(idProduto){
+    return this.http.delete("api/produto/" + idProduto)
   }
 }

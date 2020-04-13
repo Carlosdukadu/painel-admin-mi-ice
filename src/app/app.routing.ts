@@ -24,15 +24,40 @@ export const routes: Routes = [{
     },
     
     {
-      path: 'forms',
+      path: 'clientes',
       loadChildren: () => import('./clientes/forms.module').then(m => m.FormsModule),
       data: {
         title: 'Form Page'
       },
+    },
+    {
+      path: 'pedidos',
+      loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule),
+      data: {
+        title: 'Pedidos Page'
+      },
     }
   ]
-}, {
-  path: 'tables',
+
+  
+},
+  // {
+//   path: 'pedidos',
+//   component: LeftNavTemplateComponent,
+//   data: {
+//     title: 'pedidos'
+//   },
+//   children: [
+//     {
+//       path: '',
+//       loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule)
+//     }
+//   ]
+// },
+
+
+{
+  path: 'produtos',
   component: LeftNavTemplateComponent,
   data: {
     title: 'Tables'
