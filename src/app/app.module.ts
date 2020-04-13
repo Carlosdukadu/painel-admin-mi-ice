@@ -10,6 +10,7 @@ import { HeaderComponent } from "./shared/header/header.component";
 import { NavigationComponent } from "./shared/navigation/navigation.component";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PedidosComponent } from './pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
     HeaderComponent,
     LeftNavTemplateComponent,
-    NavigationComponent
+    NavigationComponent,
+    PedidosComponent
   ],
   imports: [
     BrowserModule,

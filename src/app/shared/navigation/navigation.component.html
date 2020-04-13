@@ -20,10 +20,12 @@
                 <small class="text-center">________________</small>
             </a>
         </li>
-        <li><a [routerLink]="['/dashboard']" [routerLinkActive]="['active']" class="waves-effect"><i class="fa fa-home"></i> <span
-                class="hide-menu">Dashboard</span></a>
-            
-            </li>
+
+
+        <li><a [routerLink]="['/dashboard']" [routerLinkActive]="['active']" class="waves-effect"><i class="fa fa-home"></i>
+                <span class="hide-menu">Dashboard</span></a>
+        
+        </li>
 
     
         <li>
@@ -32,11 +34,21 @@
                 <span class="hide-menu">Clientes</span>
             </a>
         </li>
+
         <li>
             <a  [routerLink]="['/tables']" [routerLinkActive]="['active']">
                 <i class="fa fa-bars"></i>
                 <span class="hide-menu">Produtos</span>
             </a>
         </li>
+
+        <li>
+            <a  [routerLink]="['/pedidos']" [routerLinkActive]="['active']">
+                <i class="fa fa-bars"></i>
+                <span class="hide-menu">Pedidos</span>
+            </a>
+        </li>
+
     </ul>
+
 </div>
