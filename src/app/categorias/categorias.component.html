@@ -1,0 +1,75 @@
+<div class="" id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row row-stat">
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading panel-heading-divider">Cadastrar nova categoria<h5>Preencha os campos</h5>
+          </div>
+          <div class="panel-body">
+            <div class="xs-mt-10 xs-mb-10  ">
+              <div class="row">
+                <div class="col-md-8">
+                  <form [formGroup]="formCategoria" class="form-horizontal" (ngSubmit)="enviarCategoria()">
+                    <div class="form-group">
+                      <div class="row">
+                        <label class="col-sm-3 control-label" for="form-control-5">Nome da Categoria</label>
+                        <div class="col-sm-9">
+                          <input id="form-control-4" class="form-control" formControlName="descricao" type="text"
+                            placeholder="Nome da Categoria">
+                        </div>
+                      </div>
+                    </div>
+                    <button class="btn btn-space btn-success d-flex align-content-center">ENVIAR</button>
+
+                  </form>
+                </div>
+              </div>
+
+
+                    <div class="" id="">
+                        <div class="container-fluid">
+                          <div class="row row-stat">
+                            <div class="col-sm-12">
+                              <div class="row">
+                                <div class="col-md-12">
+                                  <div class="panel panel-default panel-table">
+                                    <div class="panel-heading panel-heading-no-divider text-center">Tabela de Categorias <h6 class="panel-subtitle">
+                                        Caso conste alguma inconsistência que <br>
+                                        não seja possível alterar, entre em contato com o suporte.</h6>
+                                    </div>
+                                    <div class="table-responsive">
+                                      <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th style="width: 32px"></th>
+                                            <th>Categorias</th>
+                                            <th style="width: 5%"></th>
+                                          </tr>
+                                        </thead>
+
+                                        <tbody>
+                                          <!-- Item 1 lista Categorias -->
+                                          <tr *ngFor="let categoria of categorias">
+                                            <td>{{categoria.idCategoria}}</td>
+                                            <td style="width: 40%">
+      
+                                               {{categoria.descricao}} 
+                                              <br>
+                                            </td>
+                                            <td class="actions">
+                                              <a>
+                                                <i class="zmdi zmdi-delete"><button style="margin-right: 10px;"
+                                                  class="btn btn-space btn-warning " type=""
+                                                  value="Alterar Campos" [routerLink]="['/alterar-categoria/'+(categoria.idCategoria)]" [routerLinkActive]="['active']">ALTERAR </button></i>
+  
+                                                <i class="zmdi zmdi-delete"><button style="margin-right: 10px;"
+                                                    class="btn btn-space btn-danger " type=""
+                                                    value="Apagar Campos" (click)="removerCategoria(categoria.idCategoria)">EXCLUIR</button></i>
+                                              </a>
+                                            </td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+

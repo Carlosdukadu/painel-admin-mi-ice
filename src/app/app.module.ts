@@ -13,7 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 // import { PedidosComponent } from './pedidos/pedidos.component';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
-// import { CategoriaComponent } from './categoria/categoria.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { AlterarCategoriaComponent } from './categorias/alterar-categoria/alterar-categoria.component';
 
 registerLocaleData(localePt, 'pt');
 
@@ -25,7 +26,8 @@ registerLocaleData(localePt, 'pt');
     HeaderComponent,
     LeftNavTemplateComponent,
     NavigationComponent,
-    // CategoriaComponent,
+    CategoriasComponent,
+    AlterarCategoriaComponent,
   ],
   imports: [
     BrowserModule,

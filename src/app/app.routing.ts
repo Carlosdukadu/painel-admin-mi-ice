@@ -37,13 +37,20 @@ export const routes: Routes = [{
         title: 'Pedidos Page'
       },
     },
-    {
-      path: 'categoria',
-      loadChildren: () => import('./categoria/categoria.module').then(m => m.CategoriaModule),
-      data: {
-        title: 'Categoria Page'
-      },
+      {
+        path: 'categorias',
+        loadChildren: () => import('./categorias/categorias-routing/categorias-routing.module').then(m => m.CategoriasModule),
+        data: {
+          title: 'Categorias Page'
+        }
     },
+    {
+      path: 'alterar-categoria/:id',
+      loadChildren: () => import('./categorias/alterar-categoria/alterar-categoria-routing/alterar-categoria-routing.module').then(m => m.AlterarCategoriaModule),
+      data: {
+        title: 'Alteração de Categorias Page'
+      }
+  }
   ]
 
   
