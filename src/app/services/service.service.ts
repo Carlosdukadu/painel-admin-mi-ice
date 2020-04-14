@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Produto } from 'app/Models/Produto';
+import { Pedido } from 'app/Models/Pedido';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,13 @@ export class ServiceService {
 
   removerProduto(idProduto){
     return this.http.delete("api/produto/" + idProduto)
+  }
+
+  buscarPedidos(){
+    return this.http.get("api/pedidos/lista")
+  }
+
+  alterarStatus(pedido: Pedido){
+    return this.http.put("api/pedido/status", pedido)
   }
 }

@@ -1,28 +1,23 @@
-
-
-
-        
-              
-
-
-
 <div style="margin-left: 50px;" class="" id="">
-    <div style="margin-left: 50px;" class="container-fluid">
-      <div style="margin-left: 50px;" class="row row-stat">
-        <div style="margin-left: 50px;" class="col-sm-12">
-          <div class="row">
-            <div class="col-md-12">
-          <div class="panel panel-default panel-table">
-            <div  class="panel-heading panel-heading-no-divider"><p style="font-size: 25px;" >Tabela Pedidos</p> <h5   class="panel-subtitle">Caso conste alguma inconsistência que <br>
-              não seja possível alterar, entre em contato com o suporte.</h5></div>
-            
-  
+  <div style="margin-left: 50px;" class="container-fluid">
+    <div style="margin-left: 50px;" class="row row-stat">
+      <div style="margin-left: 50px;" class="col-sm-12">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading panel-heading-no-divider">
+                <p style="font-size: 25px;">Tabela Pedidos</p>
+                <h5 class="panel-subtitle">Caso conste alguma inconsistência que <br>
+                  não seja possível alterar, entre em contato com o suporte.</h5>
+              </div>
+
+
               <div>
-              
+
                 <div class="sidebar-search hidden-sm hidden-md hidden-lg" style="width: 500px;">
                   <!-- input-group -->
                   <!-- <h5 style="margin-bottom: -20px;" class="p-2">Pesquisar Cliente:</h5> -->
-                  <small  class="text-muted p-3">Pesquise ultilizando ID_Cliente, ID_Pedido ou DT_Pedido</small>
+                  <small class="text-muted p-3">Pesquise ultilizando ID_Cliente, ID_Pedido ou DT_Pedido</small>
                   <div style="margin-top: 10px;" class="input-group custom-search-form">
                     <input type="text" class="form-control" placeholder="Pesquisar cliente...">
                     <span class="input-group-btn">
@@ -32,199 +27,125 @@
                   <!-- /input-group -->
                 </div>
               </div>
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th style="width: 32px"></th>
-                        <!-- ID_PEDIDO  	ID_CLIENTE  	DT_PEDIDO  	ID_ENDERECO  	DS_FORMAPGTO  	VL_FRETE  	VL_TOTAL   -->
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th style="width: 32px"></th>
+                      <!-- ID_PEDIDO  	ID_CLIENTE  	DT_PEDIDO  	ID_ENDERECO  	DS_FORMAPGTO  	VL_FRETE  	VL_TOTAL   -->
 
-                        <th>ID_PEDIDO</th>
-                        <th>ID_CLIENTE</th>
-                        <th>DT_PEDIDO</th>
-                        <th>ID_ENDERECO</th>
-                        <th>DS_FORMAPGTO</th>
-                        <th>VL_FRETE</th>
-                        <th>VL_TOTAL</th>
-                        <th>STATUS</th>
-                        <th style="width: 5%"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-  
-                      <!-- Item 1 lista Pedidos -->
-                      <tr>
-                        <td>
-                          <img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52"> </td>
-                        <td>2020157</td>
-                        <td> 10025
-                          <br>
-                          <small class="text-muted">Arthur Ferreira Souza</small>
-                        </td>
-                        <td>
-                          <span class="flag-icon flag-icon-us">13/04/2020</span>
-                        </td>
-                        <td>250</td>
-                      
-                        <td>Cartão de crédito</td>
-                        <td>R$15</td>
-                        <td>R$280</td>
-                        <td>
-                          <div class="form-group">
-                            <div class="row">
-                      
-                              <div class="col-sm-9">
-                                <select id="form-control-9" class="form-control">
-                                  <option value="aguardando-pagamento">Aguardando Pagamento
+                      <th>ID_PEDIDO</th>
+                      <th>ID_CLIENTE</th>
+                      <th>DT_PEDIDO</th>
+                      <th>ID_ENDERECO</th>
+                      <th>DS_FORMAPGTO</th>
+                      <th>VL_FRETE</th>
+                      <th>VL_TOTAL</th>
+                      <th>STATUS</th>
+                      <th style="width: 5%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let pedido of pedidos">
+                      <td>
+                        <img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">
+                      </td>
+                      <td>{{pedido.idPedido}}</td>
+                      <td> {{pedido.cliente}}
+                        <br>
+                        <small class="text-muted">Arthur Ferreira Souza</small>
+                      </td>
+                      <td>
+                        <span class="flag-icon flag-icon-us">{{pedido.dtPedido | date:"dd/MM/yyyy"}}</span>
+                      </td>
+                      <td>{{pedido.endereco}}</td>
+
+                      <td>{{pedido.formapgto}}</td>
+                      <td>{{pedido.vlFrete | currency:"BRL"}}</td>
+                      <td>{{pedido.vlTotal | currency:"BRL"}}</td>
+                      <td>
+                        <div class="form-group">
+                          <div class="row">
+
+                            <div class="col-sm-9">
+                              <ng-template [ngIf]="pedido.status == null">
+                                <select id="status" class="form-control" (input)="this.status = $event.target.value" (change)="statusPedido(pedido)">
+                                  <option value="null" selected>Status do pedido</option>
+                                  <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
                                   </option>
-                                  <option value="em-separação">Em Separação</option>
-                                  <option value="enviado">Enviado</option>
-                                  <option value="entregue">Entregue</option>
-                                  <option value="cancelado">Cancelado</option>
+                                  <option value="EMSEPARACAO">Em Separação</option>
+                                  <option value="ENVIADO">Enviado</option>
+                                  <option value="ENTREGUE">Entregue</option>
+                                  <option value="CANCELADO">Cancelado</option>
                                 </select>
-                              </div>
+                              </ng-template>
+                              <ng-template [ngIf]="pedido.status == 'AGUARDANDOPAGAMENTO'">
+                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                                <option value="AGUARDANDOPAGAMENTO" selected>Aguardando Pagamento
+                                </option>
+                                <option value="EMSEPARACAO">Em Separação</option>
+                                <option value="ENVIADO">Enviado</option>
+                                <option value="ENTREGUE">Entregue</option>
+                                <option value="CANCELADO">Cancelado</option>
+                              </select>
+                            </ng-template>
+                              <ng-template [ngIf]="pedido.status == 'EMSEPARACAO'">
+                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                                <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
+                                </option>
+                                <option value="EMSEPARACAO" selected>Em Separação</option>
+                                <option value="ENVIADO">Enviado</option>
+                                <option value="ENTREGUE">Entregue</option>
+                                <option value="CANCELADO">Cancelado</option>
+                              </select>
+                            </ng-template>
+                              <ng-template [ngIf]="pedido.status == 'ENVIADO'">
+                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                                <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
+                                </option>
+                                <option value="EMSEPARACAO">Em Separação</option>
+                                <option value="ENVIADO" selected>Enviado</option>
+                                <option value="ENTREGUE">Entregue</option>
+                                <option value="CANCELADO">Cancelado</option>
+                              </select>
+                            </ng-template>
+                              <ng-template [ngIf]="pedido.status == 'ENTREGUE'">
+                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                                <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
+                                </option>
+                                <option value="EMSEPARACAO">Em Separação</option>
+                                <option value="ENVIADO">Enviado</option>
+                                <option value="ENTREGUE" selected>Entregue</option>
+                                <option value="CANCELADO">Cancelado</option>
+                              </select>
+                            </ng-template>
+                              <ng-template [ngIf]="pedido.status == 'CANCELADO'">
+                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                                <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
+                                </option>
+                                <option value="EMSEPARACAO">Em Separação</option>
+                                <option value="ENVIADO">Enviado</option>
+                                <option value="ENTREGUE">Entregue</option>
+                                <option value="CANCELADO" selected>Cancelado</option>
+                              </select>
+                            </ng-template>
                             </div>
                           </div>
-                        </td>
-                      
-                        <!-- <td class="actions">
-                                                <a href="">
-                                                  <i class="zmdi zmdi-delete"><button style="margin-right: 10px; width: 20px;" class="btn btn-space btn-danger" type="" value="">Alterar Status</button></i>
-                                                </a>
-                                              </td> -->
-                      
-                      </tr>
-                      <!-- Item 2 lista Pedidos -->
-                      <tr>
-                        <td>
-                          <img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">
-                        </td>
-                        <td>2020157</td>
-                        <td> 10025
-                          <br>
-                          <small class="text-muted">Arthur Ferreira Souza</small>
-                        </td>
-                        <td>
-                          <span class="flag-icon flag-icon-us">13/04/2020</span>
-                        </td>
-                        <td>250</td>
-                        
-                        <td>Cartão de crédito</td>
-                        <td>R$15</td>
-                        <td>R$280</td>
-                        <td>
-                          <div class="form-group">
-                            <div class="row">
-                              
-                              <div class="col-sm-9">
-                                <select id="form-control-9" class="form-control">
-                                  <option value="aguardando-pagamento">Aguardando Pagamento
-                                  </option>
-                                  <option value="em-separação">Em Separação</option>
-                                  <option value="enviado">Enviado</option>
-                                  <option value="entregue">Entregue</option>
-                                  <option value="cancelado">Cancelado</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                              </td>
-  
+                        </div>
+                      </td>
 
-                        
-                      </tr>
-  
-  
-                      <!-- Item 3 lista Pedidos -->
-                      <tr>
-                        <td>
-<img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">                        </td>
-                        <td>2020157</td>
-                        <td> 10025
-                          <br>
-                          <small class="text-muted">Arthur Ferreira Souza</small>
-                        </td>
-                        <td>
-                          <span class="flag-icon flag-icon-us">13/04/2020</span>
-                        </td>
-                        <td>250</td>
-                        
-                        <td>Cartão de crédito</td>
-                        <td>R$15</td>
-                        <td>R$280</td>
-                        <td>
-                          <div class="form-group">
-                            <div class="row">
-                              
-                              <div class="col-sm-9">
-                                <select id="form-control-9" class="form-control">
-                                  <option value="aguardando-pagamento">Aguardando Pagamento
-                                  </option>
-                                  <option value="em-separação">Em Separação</option>
-                                  <option value="enviado">Enviado</option>
-                                  <option value="entregue">Entregue</option>
-                                  <option value="cancelado">Cancelado</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                              </td>
-                        
-  
-
-                        
-                      </tr>
-  
-                      <!-- Item 4 lista Pedidos -->
-                      <tr>
-                        <td>
-<img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">                        </td>
-                        <td>2020157</td>
-                        <td> 10025
-                          <br>
-                          <small class="text-muted">Arthur Ferreira Souza</small>
-                        </td>
-                        <td>
-                          <span class="flag-icon flag-icon-us">13/04/2020</span>
-                        </td>
-                        <td>250</td>
-                        
-                        <td>Cartão de crédito</td>
-                        <td>R$15</td>
-                        <td>R$280</td>
-                        <td>
-                          <div class="form-group">
-                            <div class="row">
-                              
-                              <div class="col-sm-9">
-                                <select id="form-control-9" class="form-control">
-                                  <option value="aguardando-pagamento">Aguardando Pagamento
-                                  </option>
-                                  <option value="em-separação">Em Separação</option>
-                                  <option value="enviado">Enviado</option>
-                                  <option value="entregue">Entregue</option>
-                                  <option value="cancelado">Cancelado</option>
-                                </select>
-                              </div>
-                            </div>
-                          </div>
-                              </td>
-  
-
-                        
-                      </tr>
-  
-                    </tbody>
-                  </table>
-                </div>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-  
-  
-  
-            
           </div>
+
+
+
+
         </div>
       </div>
     </div>
   </div>
+</div>
