@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {BlankTemplateComponent} from './template/blank-template.component';
-import {LeftNavTemplateComponent} from './template/left-nav-template.component';
-import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { BlankTemplateComponent } from './template/blank-template.component';
+import { LeftNavTemplateComponent } from './template/left-nav-template.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [{
   path: '',
@@ -22,7 +22,7 @@ export const routes: Routes = [{
         title: 'Dashboard Page'
       },
     },
-    
+
     {
       path: 'clientes',
       loadChildren: () => import('./clientes/forms.module').then(m => m.FormsModule),
@@ -37,12 +37,12 @@ export const routes: Routes = [{
         title: 'Pedidos Page'
       },
     },
-      {
-        path: 'categorias',
-        loadChildren: () => import('./categorias/categorias-routing/categorias-routing.module').then(m => m.CategoriasModule),
-        data: {
-          title: 'Categorias Page'
-        }
+    {
+      path: 'categorias',
+      loadChildren: () => import('./categorias/categorias-routing/categorias-routing.module').then(m => m.CategoriasModule),
+      data: {
+        title: 'Categorias Page'
+      }
     },
     {
       path: 'alterar-categoria/:id',
@@ -50,12 +50,19 @@ export const routes: Routes = [{
       data: {
         title: 'Alteração de Categorias Page'
       }
-  }
+    },
+    {
+      path: 'alterar-produto/:id',
+      loadChildren: () => import('./Produtos/alterar-produto/alterar-produto-routing/alterar-produto-routing.module').then(m => m.AlterarProdutoModule),
+      data: {
+        title: 'Alteração de Produtos Page'
+      }
+    }
   ]
 
-  
+
 },
-  // {
+// {
 //   path: 'pedidos',
 //   component: LeftNavTemplateComponent,
 //   data: {

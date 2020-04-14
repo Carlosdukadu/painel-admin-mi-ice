@@ -18,7 +18,7 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">Nome Produto</label>
                         <div class="col-sm-9">
-                          <input id="form-control-5" class="form-control" formControlName="nome" type="email"
+                          <input  class="form-control" formControlName="nome" type="email"
                             placeholder="Nome Produto">
                         </div>
                       </div>
@@ -53,7 +53,7 @@
                           <select id="form-control-9" class="form-control" formControlName="categoria">
                             <option value="" selected disabled>Selecionar categoria</option>
                             <option value="2">Gelo Terapeutico</option>
-                            <option value="3">Gelo para Consumo</option>
+                            <option value="1">Gelo para Consumo</option>
                           </select>
                         </div>
                       </div>
@@ -73,7 +73,7 @@
                               png gif jpg jpeg.
 
                             </small>
-                          </  p>
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -83,7 +83,7 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">VL Produto</label>
                         <div class="col-sm-4 col-md-3">
-                          <input id="form-control-5" class="form-control" formControlName="precoCheio" type="number"
+                          <input id="form-control-6" class="form-control" formControlName="precoCheio" type="number"
                             placeholder="Valor Produto R$">
                         </div>
 
@@ -180,8 +180,11 @@
                               <td>{{produto.precoDesconto | currency:"BRL"}}</td>
                               <td class="actions">
                                 <a>
-                                  <i class="zmdi zmdi-delete"><button style="margin-right: 10px;"
-                                      class="btn btn-space btn-danger " type=""
+                                  <i class="zmdi zmdi-delete"><button style="margin-right: 40px;"
+                                    class="btn btn-space btn-warning " type=""
+                                    value="Alterar Campos" [routerLink]="['/alterar-produto/'+(produto.idProduto)]" [routerLinkActive]="['active']">ALTERAR </button></i>
+                                  <i class="zmdi zmdi-delete"><button 
+                                      class="btn btn-space btn-danger mt-1 " type=""
                                       value="Apagar Campos" (click)="removerProduto(produto.idProduto)">EXCLUIR</button></i>
                                 </a>
                               </td>

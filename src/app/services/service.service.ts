@@ -45,7 +45,7 @@ export class ServiceService {
   }
 
   public getProduto(idProduto: number): Observable<any> {
-    return this.http.get("http://localhost:8080/ecommerce/produtos/" + idProduto)
+    return this.http.get("http://localhost:8080/ecommerce/produto/" + idProduto)
   }
 
   public getCategoria(idCategoria: number): Observable<any> {
@@ -54,6 +54,11 @@ export class ServiceService {
 
   public alterarCategoria(c: Categoria) {
     return this.http.put("http://localhost:8080/ecommerce/alterar-categoria/", c);
+
+  }
+
+  public alterarProduto(p: Produto) {
+    return this.http.put("http://localhost:8080/ecommerce/alterar-produto/", p);
 
   }
 
