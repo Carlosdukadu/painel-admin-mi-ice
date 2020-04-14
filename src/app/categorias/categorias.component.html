@@ -41,9 +41,9 @@
                                       <table class="table">
                                         <thead>
                                           <tr>
-                                            <th style="width: 32px"></th>
+                                            <th>Id</th>
                                             <th>Categorias</th>
-                                            <th style="width: 5%"></th>
+                                            <th style="width: 30%"></th>
                                           </tr>
                                         </thead>
 
@@ -51,14 +51,14 @@
                                           <!-- Item 1 lista Categorias -->
                                           <tr *ngFor="let categoria of categorias">
                                             <td>{{categoria.idCategoria}}</td>
-                                            <td style="width: 40%">
+                                            <td style="width: 50%">
       
                                                {{categoria.descricao}} 
                                               <br>
                                             </td>
                                             <td class="actions">
                                               <a>
-                                                <i class="zmdi zmdi-delete"><button style="margin-right: 10px;"
+                                                <i class="zmdi zmdi-delete"><button style="margin-right: 40px;"
                                                   class="btn btn-space btn-warning " type=""
                                                   value="Alterar Campos" [routerLink]="['/alterar-categoria/'+(categoria.idCategoria)]" [routerLinkActive]="['active']">ALTERAR </button></i>
   
