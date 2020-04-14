@@ -25,7 +25,7 @@ export const routes: Routes = [{
 
     {
       path: 'clientes',
-      loadChildren: () => import('./clientes/forms.module').then(m => m.FormsModule),
+      loadChildren: () => import('./clientes/clientes.module').then(m => m.ClientesModule),
       data: {
         title: 'Form Page'
       },
