@@ -152,18 +152,20 @@
                         <table class="table">
                           <thead>
                             <tr>
-                              <th style="width: 32px"></th>
-                              <th>Name</th>
+                              <th>ID</th>
+                              <th></th>
+                              <th>Nome</th>
                               <th>Descrição</th>
                               <th>Vl_Produto</th>
                               <th>VL_c/_desconto</th>
-                              <th style="width: 5%"></th>
+                              <th style="width: 2%"></th>
                             </tr>
                           </thead>
                           <tbody>
 
                             <!-- Item 1 lista Produtos -->
                             <tr *ngFor="let produto of produtos">
+                              <td>{{produto.idProduto}}</td>
                               <td>
                                 <img class="non-responsive img-circle" src="{{produto.imagem}}" alt="" width="32"
                                   height="32">
@@ -180,7 +182,7 @@
                               <td>{{produto.precoDesconto | currency:"BRL"}}</td>
                               <td class="actions">
                                 <a>
-                                  <i class="zmdi zmdi-delete"><button style="margin-right: 40px;"
+                                  <i class="zmdi zmdi-delete"><button 
                                     class="btn btn-space btn-warning " type=""
                                     value="Alterar Campos" [routerLink]="['/alterar-produto/'+(produto.idProduto)]" [routerLinkActive]="['active']">ALTERAR </button></i>
                                   <i class="zmdi zmdi-delete"><button 
