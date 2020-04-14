@@ -18,8 +18,7 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">Nome Produto</label>
                         <div class="col-sm-9">
-                          <input  class="form-control" formControlName="nome" type="email"
-                            placeholder="Nome Produto">
+                          <input class="form-control" formControlName="nome" type="email" placeholder="Nome Produto">
                         </div>
                       </div>
                     </div>
@@ -148,6 +147,18 @@
                           não seja possível aleterar, entre em contato com o suporte.</h6>
                       </div>
 
+                      <div class="sidebar-search hidden-sm hidden-md hidden-lg" style="width: 500px;">
+                        <!-- input-group -->
+                        <!-- <h5 style="margin-bottom: -20px;" class="p-2">Pesquisar Cliente:</h5> -->
+                        <small  class="text-muted p-3">Pesquise utilizando ID_Produto ou Nome do Produto</small>
+                        <div style="margin-top: 10px;" class="input-group custom-search-form">
+                          <input type="text" class="form-control" placeholder="Pesquisar produto..." [(ngModel)]="filter">
+                          <span class="input-group-btn">
+                          </span>
+                        </div>
+                        <!-- /input-group -->
+                      </div>
+ 
                       <div class="table-responsive">
                         <table class="table">
                           <thead>
@@ -164,7 +175,7 @@
                           <tbody>
 
                             <!-- Item 1 lista Produtos -->
-                            <tr *ngFor="let produto of produtos">
+                            <tr *ngFor="let produto of produtos | filter:filter; let i = index">
                               <td>{{produto.idProduto}}</td>
                               <td>
                                 <img class="non-responsive img-circle" src="{{produto.imagem}}" alt="" width="32"
@@ -182,12 +193,12 @@
                               <td>{{produto.precoDesconto | currency:"BRL"}}</td>
                               <td class="actions">
                                 <a>
-                                  <i class="zmdi zmdi-delete"><button 
-                                    class="btn btn-space btn-warning " type=""
-                                    value="Alterar Campos" [routerLink]="['/alterar-produto/'+(produto.idProduto)]" [routerLinkActive]="['active']">ALTERAR </button></i>
-                                  <i class="zmdi zmdi-delete"><button 
-                                      class="btn btn-space btn-danger mt-1 " type=""
-                                      value="Apagar Campos" (click)="removerProduto(produto.idProduto)">EXCLUIR</button></i>
+                                  <i class="zmdi zmdi-delete"><button class="btn btn-space btn-warning " type=""
+                                      value="Alterar Campos" [routerLink]="['/alterar-produto/'+(produto.idProduto)]"
+                                      [routerLinkActive]="['active']">ALTERAR </button></i>
+                                  <i class="zmdi zmdi-delete"><button class="btn btn-space btn-danger mt-1 " type=""
+                                      value="Apagar Campos"
+                                      (click)="removerProduto(produto.idProduto)">EXCLUIR</button></i>
                                 </a>
                               </td>
                             </tr>

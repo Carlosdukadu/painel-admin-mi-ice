@@ -15,6 +15,8 @@ import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { AlterarCategoriaComponent } from './categorias/alterar-categoria/alterar-categoria.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter'; // Importação
+
 
 registerLocaleData(localePt, 'pt');
 
@@ -35,6 +37,7 @@ registerLocaleData(localePt, 'pt');
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    Ng2SearchPipeModule, // Nosso módulo recém instalado
     RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [{
