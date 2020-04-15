@@ -1,0 +1,25 @@
+<div class="" id="page-wrapper">
+  <div class="container-fluid">
+    <div class="row row-stat">
+      <div class="col-sm-12">
+        <div class="panel panel-default">
+          <div class="panel-heading panel-heading-divider">Alterar descrição da categoria<h5>Preencha o campo abaixo</h5>
+          </div>
+          <div class="panel-body">
+            <div class="xs-mt-10 xs-mb-10  ">
+              <div class="row">
+                <div class="col-md-8">
+                  <h3> <strong>Id: {{id}}</strong> </h3>
+                  <div class="form-group">
+                    <div class="row">
+                        <label class="col-sm-7 control-label" for="form-control-5">Nome da Categoria</label>
+                        <div class="col-sm-9">
+                          <input type="text" class="form-control" placeholder="Descrição"
+                          (input)="this.descricao = $event.target.value">
+                      </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <input class="btn btn-success" type="submit" value="Salvar" (click)="mudar()">

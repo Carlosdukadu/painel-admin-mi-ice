@@ -1,0 +1,90 @@
+<div class="" id="page-wrapper">
+    <div class="container-fluid">
+      <div class="row row-stat">
+        <div class="col-sm-12">
+          <div class="panel panel-default">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="panel panel-default panel-table">
+                <div class="panel-heading panel-heading-no-divider">
+                  <p style="font-size: 25px;">Tabela Cliente</p>
+                  <h5 class="panel-subtitle">Caso conste alguma inconsistência que <br>
+                    não seja possível alterar, entre em contato com o suporte.</h5>
+                </div>
+  
+  
+                <div>
+  
+                  <div class="sidebar-search hidden-sm hidden-md hidden-lg" style="width: 500px;">
+                    <!-- input-group -->
+                    <!-- <h5 style="margin-bottom: -20px;" class="p-2">Pesquisar Cliente:</h5> -->
+                    <small class="text-muted p-3">Pesquise ultilizando ID_Cliente, Nome ou e-mail</small>
+                    <div style="margin-top: 10px;" class="input-group custom-search-form">
+                      <input type="text" class="form-control" placeholder="Pesquisar cliente..."  [(ngModel)]="filter" >
+                      <span class="input-group-btn">
+                      </span>
+                    </div>
+                    <!-- /input-group -->
+                  </div>
+                </div>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <!-- <th style="width: 32px"></th> -->
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Endereço</th>
+                        <th>CPF</th>
+                        <th>Data de Nascimento</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th style="width: 5%"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+  
+                      <!-- Item lista Clientes -->
+                      <tr *ngFor="let cliente of clientes | filter:filter; let i = index">
+                        <td>{{cliente.idCliente}}</td>
+                        <td>{{cliente.nome}}</td>
+                        <td> {{cliente.enderecos[0].logradouro}}, {{cliente.enderecos[0].numero}} -
+                          {{cliente.enderecos[0].localidade}}
+  
+                          <br>
+                          <small class="text-muted">{{cliente.enderecos[0].cep}}</small>
+                        </td>
+                        <td>
+                          <span class="flag-icon flag-icon-us">{{cliente.cpf}}</span>
+                        </td>
+                        <td>{{cliente.nascimento | date:"dd/MM/yyyy"}}</td>
+  
+                        <td>{{cliente.email}}</td>
+                        <td>{{cliente.telefone}}</td>
+  
+                        <td class="actions">
+                          <!-- <a href=""> -->
+                          <i class="zmdi zmdi-delete"><button style="margin-right: 10px;"
+                              class="btn btn-space btn-danger "
+                              (click)="removerCliente(cliente.idCliente)">EXCLUIR</button></i>
+                          <!-- </a> -->
+                        </td>
+  
+                      </tr>
+  
+  
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+  
+  
+  
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

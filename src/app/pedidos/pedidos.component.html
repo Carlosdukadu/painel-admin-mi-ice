@@ -46,7 +46,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let pedido of pedidos">
+                    <tr *ngFor="let pedido of pedidos | filter:filter; let i = index">
                       <td>
                         <img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">
                       </td>

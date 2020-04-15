@@ -14,7 +14,8 @@ export class TablesComponent implements OnInit {
   }
 
   formProduto: FormGroup;
-  produtos: any
+  produtos: any;
+  filter: string;
 
   constructor(private service: ServiceService, private fb: FormBuilder) {
     this.formProduto = this.adicionarProduto()

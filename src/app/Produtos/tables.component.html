@@ -18,8 +18,7 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">Nome Produto</label>
                         <div class="col-sm-9">
-                          <input id="form-control-5" class="form-control" formControlName="nome" type="email"
-                            placeholder="Nome Produto">
+                          <input class="form-control" formControlName="nome" type="email" placeholder="Nome Produto">
                         </div>
                       </div>
                     </div>
@@ -53,7 +52,7 @@
                           <select id="form-control-9" class="form-control" formControlName="categoria">
                             <option value="" selected disabled>Selecionar categoria</option>
                             <option value="2">Gelo Terapeutico</option>
-                            <option value="3">Gelo para Consumo</option>
+                            <option value="1">Gelo para Consumo</option>
                           </select>
                         </div>
                       </div>
@@ -83,7 +82,7 @@
                       <div class="row">
                         <label class="col-sm-3 control-label" for="form-control-5">VL Produto</label>
                         <div class="col-sm-4 col-md-3">
-                          <input id="form-control-5" class="form-control" formControlName="precoCheio" type="number"
+                          <input id="form-control-6" class="form-control" formControlName="precoCheio" type="number"
                             placeholder="Valor Produto R$">
                         </div>
 
@@ -148,23 +147,35 @@
                           não seja possível aleterar, entre em contato com o suporte.</h6>
                       </div>
 
+                      <div class="sidebar-search hidden-sm hidden-md hidden-lg" style="width: 500px;">
+                        <!-- input-group -->
+                        <small  class="text-muted p-3">Pesquise utilizando ID_Produto ou Nome do Produto</small>
+                        <div style="margin-top: 10px;" class="input-group custom-search-form">
+                          <input type="text" class="form-control" placeholder="Pesquisar produto..." [(ngModel)]="filter">
+                          <span class="input-group-btn">
+                          </span>
+                        </div>
+                        <!-- /input-group -->
+                      </div>
+ 
                       <div class="table-responsive">
                         <table class="table">
                           <thead>
                             <tr>
-                              <th style="width: 32px"></th>
-                              <th>Name</th>
+                              <th>ID</th>
+                              <th></th>
+                              <th>Nome</th>
                               <th>Descrição</th>
                               <th>Vl_Produto</th>
                               <th>VL_c/_desconto</th>
-                              <th>Categoria</th>
-                              <th style="width: 5%"></th>
+                              <th style="width: 2%"></th>
                             </tr>
                           </thead>
                           <tbody>
 
                             <!-- Item 1 lista Produtos -->
-                            <tr *ngFor="let produto of produtos">
+                            <tr *ngFor="let produto of produtos | filter:filter; let i = index">
+                              <td>{{produto.idProduto}}</td>
                               <td>
                                 <img class="non-responsive img-circle" src="{{produto.imagem}}" alt="" width="32"
                                   height="32">
@@ -181,13 +192,14 @@
                               <td>{{produto.precoDesconto | currency:"BRL"}}</td>
                               <td class="actions">
                                 <a>
-                                  <i class="zmdi zmdi-delete"><button style="margin-right: 10px;"
-                                      class="btn btn-space btn-danger " type=""
-                                      value="Apagar Campos" (click)="removerProduto(produto.idProduto)">EXCLUIR</button></i>
+                                  <i class="zmdi zmdi-delete"><button class="btn btn-space btn-warning " type=""
+                                      value="Alterar Campos" [routerLink]="['/alterar-produto/'+(produto.idProduto)]"
+                                      [routerLinkActive]="['active']">ALTERAR </button></i>
+                                  <i class="zmdi zmdi-delete"><button class="btn btn-space btn-danger mt-1 " type=""
+                                      value="Apagar Campos"
+                                      (click)="removerProduto(produto.idProduto)">EXCLUIR</button></i>
                                 </a>
                               </td>
-                              <td>{{produto.categoria}}</td>
-
                             </tr>
                           </tbody>
                         </table>

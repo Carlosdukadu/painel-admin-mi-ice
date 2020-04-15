@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgModule } from '@angular/core';
 import { ServiceService } from 'app/services/service.service';
 import { Pedido } from 'app/Models/Pedido';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-pedidos',
@@ -13,6 +13,7 @@ export class PedidosComponent implements OnInit {
   pedidos: Pedido[] = []
   formStatus: FormGroup
   status: any
+  filter: string;
 
   constructor(private service: ServiceService, private fb: FormBuilder) {
     this.buscarPedidos()
