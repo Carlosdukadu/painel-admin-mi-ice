@@ -34,6 +34,8 @@ export class PedidosComponent implements OnInit {
         console.log("acho que agora vai");
       })
       }
+      console.log(this.status);
+      
     }
 
   ngOnInit(): void {

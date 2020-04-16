@@ -52,8 +52,6 @@
                       </td>
                       <td>{{pedido.idPedido}}</td>
                       <td> {{pedido.cliente}}
-                        <br>
-                        <small class="text-muted">Arthur Ferreira Souza</small>
                       </td>
                       <td>
                         <span class="flag-icon flag-icon-us">{{pedido.dtPedido | date:"dd/MM/yyyy"}}</span>
@@ -80,7 +78,7 @@
                                 </select>
                               </ng-template>
                               <ng-template [ngIf]="pedido.status == 'AGUARDANDOPAGAMENTO'">
-                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                              <select id="form-control-9" class="form-control" (input)="this.status = $event.target.value" (change)="statusPedido(pedido)">
                                 <option value="AGUARDANDOPAGAMENTO" selected>Aguardando Pagamento
                                 </option>
                                 <option value="EMSEPARACAO">Em Separação</option>
@@ -90,7 +88,7 @@
                               </select>
                             </ng-template>
                               <ng-template [ngIf]="pedido.status == 'EMSEPARACAO'">
-                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                              <select id="form-control-9" class="form-control" (input)="this.status = $event.target.value" (change)="statusPedido(pedido)">
                                 <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
                                 </option>
                                 <option value="EMSEPARACAO" selected>Em Separação</option>
@@ -100,7 +98,7 @@
                               </select>
                             </ng-template>
                               <ng-template [ngIf]="pedido.status == 'ENVIADO'">
-                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                              <select id="form-control-9" class="form-control" (input)="this.status = $event.target.value" (change)="statusPedido(pedido)">
                                 <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
                                 </option>
                                 <option value="EMSEPARACAO">Em Separação</option>
@@ -110,7 +108,7 @@
                               </select>
                             </ng-template>
                               <ng-template [ngIf]="pedido.status == 'ENTREGUE'">
-                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                              <select id="form-control-9" class="form-control" (input)="this.status = $event.target.value" (change)="statusPedido(pedido)">
                                 <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
                                 </option>
                                 <option value="EMSEPARACAO">Em Separação</option>
@@ -120,7 +118,7 @@
                               </select>
                             </ng-template>
                               <ng-template [ngIf]="pedido.status == 'CANCELADO'">
-                              <select id="form-control-9" class="form-control" (change)="statusPedido(pedido)">
+                              <select id="form-control-9" class="form-control" (input)="this.status = $event.target.value" (change)="statusPedido(pedido)">
                                 <option value="AGUARDANDOPAGAMENTO">Aguardando Pagamento
                                 </option>
                                 <option value="EMSEPARACAO">Em Separação</option>
