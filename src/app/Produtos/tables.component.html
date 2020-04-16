@@ -50,9 +50,12 @@
                         <label class="col-sm-3 control-label" for="form-control-9">Categoria</label>
                         <div class="col-sm-9">
                           <select id="form-control-9" class="form-control" formControlName="categoria">
-                            <option value="" selected disabled>Selecionar categoria</option>
+                            <!-- <option value="" selected disabled>Selecionar categoria</option>
                             <option value="2">Gelo Terapeutico</option>
-                            <option value="1">Gelo para Consumo</option>
+                            <option value="1">Gelo para Consumo</option> -->
+                            <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">
+                              {{categoria.descricao}}
+                            </option>
                           </select>
                         </div>
                       </div>
@@ -149,15 +152,16 @@
 
                       <div class="sidebar-search hidden-sm hidden-md hidden-lg" style="width: 500px;">
                         <!-- input-group -->
-                        <small  class="text-muted p-3">Pesquise utilizando ID_Produto ou Nome do Produto</small>
+                        <small class="text-muted p-3">Pesquise utilizando ID_Produto ou Nome do Produto</small>
                         <div style="margin-top: 10px;" class="input-group custom-search-form">
-                          <input type="text" class="form-control" placeholder="Pesquisar produto..." [(ngModel)]="filter">
+                          <input type="text" class="form-control" placeholder="Pesquisar produto..."
+                            [(ngModel)]="filter">
                           <span class="input-group-btn">
                           </span>
                         </div>
                         <!-- /input-group -->
                       </div>
- 
+
                       <div class="table-responsive">
                         <table class="table">
                           <thead>

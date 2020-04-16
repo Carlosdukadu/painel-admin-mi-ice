@@ -28,13 +28,11 @@ export class ServiceService {
       nome: p.nome,
       descricao: p.descricao,
       imagem: "assets/" + p.imagem.slice(12, p.imagem.length),
-      categoria: {
-        idCategoria: p.categoria
-      },
+      categoria: p.categoria,
       precoCheio: p.precoCheio,
       precoDesconto: p.precoDesconto
     }
-    return this.http.post("http://localhost:8080/ecommerce/produto/", produtoNovo)
+    return this.http.post("http://localhost:8080/ecommerce/criar-produto/", produtoNovo)
   }
 
   removerProduto(idProduto) {

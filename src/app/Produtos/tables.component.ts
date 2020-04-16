@@ -16,10 +16,12 @@ export class TablesComponent implements OnInit {
   formProduto: FormGroup;
   produtos: any;
   filter: string;
+  categorias: any;
 
   constructor(private service: ServiceService, private fb: FormBuilder) {
     this.formProduto = this.adicionarProduto()
     this.buscarProdutos()
+    this.buscarCategorias()
   }
 
   adicionarProduto(): FormGroup {
@@ -56,5 +58,11 @@ export class TablesComponent implements OnInit {
         location.reload()
       })
     }
+  }
+
+  buscarCategorias(){
+    this.service.buscarCategorias().subscribe((categorias) => {
+      this.categorias = categorias
+    })
   }
 }
