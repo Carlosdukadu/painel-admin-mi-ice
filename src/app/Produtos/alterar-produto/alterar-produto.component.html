@@ -3,7 +3,7 @@
     <div class="row row-stat">
       <div class="col-sm-12">
         <div class="panel panel-default">
-          <div class="panel-heading panel-heading-divider">Alterar o Produto<h5>Preencha os campos abaixo</h5>
+          <div class="panel-heading panel-heading-divider">Alterar o Produto<h5>Preencha algum campo abaixo que queira fazer alteração.</h5>
           </div>
           <div class="panel-body">
             <div class="xs-mt-10 xs-mb-10  ">
@@ -34,21 +34,13 @@
 
                   <div class="form-group">
                     <div class="row">
-                      <label class="col-sm-3 control-label" for="form-control-11">Selecionar imagem</label>
+                      <label class="col-sm-3 control-label" for="form-control-11">URL imagem</label>
                       <div class="col-sm-9">
-                        <input id="" type="file" accept="image/*" multiple="multiple"
-                          (input)="this.imagem = $event.target.value">
-                        <p class="help-block">
-                          <small>Um número ilimitado de arquivos pode ser carregado para este campo. Tipos
-                            permitidos:
-                            png gif jpg jpeg.
-
-                          </small>
-                        </p>
+                        <input id="form-control-11" type="text" class="form-control"
+                          formControlName="imagem">
                       </div>
                     </div>
                   </div>
-
 
 
                   <div class="form-group">
