@@ -27,7 +27,7 @@ export class ServiceService {
     let produtoNovo = {
       nome: p.nome,
       descricao: p.descricao,
-      imagem: "assets/" + p.imagem.slice(12, p.imagem.length),
+      imagem: p.imagem,
       categoria: p.categoria,
       precoCheio: p.precoCheio,
       precoDesconto: p.precoDesconto
