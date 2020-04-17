@@ -50,7 +50,7 @@
                       <td>
                         <img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">
                       </td>
-                      <td>{{pedido.idPedido}}</td>
+                      <td (click)="pedidoSelecionado(item.idPedido)">{{pedido.idPedido}}</td>
                       <td> {{pedido.cliente}}
                         <br>
                         <small class="text-muted">Arthur Ferreira Souza</small>

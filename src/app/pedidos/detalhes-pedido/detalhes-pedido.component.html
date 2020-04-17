@@ -1,0 +1,77 @@
+<div style="margin-left: 50px;" class="" id="">
+    <div style="margin-left: 50px;" class="container-fluid">
+        <div style="margin-left: 50px;" class="row row-stat">
+            <div style="margin-left: 50px;" class="col-sm-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-default panel-table">
+                            <div class="panel-heading panel-heading-no-divider">
+                                <p style="font-size: 25px;">Detalhes do Pedido</p>
+                                <h5 class="panel-subtitle">Caso conste alguma inconsistência que <br>
+                                    não seja possível alterar, entre em contato com o suporte.</h5>
+                            </div>
+
+
+                            <h4 *ngIf="pedido != undefined"><strong>Pedido #{{pedido.idPedido}}</strong></h4>
+                            <br>
+                            <table border="1" class="bordaTabela" style="background-color: #eceeef;"
+                                *ngIf="pedido != undefined">
+                                <thead>
+                                    <th class="text-center" style="width:160px">Produto</th>
+                                    <th class="text-center" style="width:200px">Detalhes</th>
+                                    <th class="text-center" style="width:200px">Quantidade</th>
+                                    <th class="text-center" style="width:200px">Preço Unitário</th>
+                                </thead>
+                                <thead>
+                                    <tr class="text-center" *ngFor="let item of pedido.itemPedido">
+                                        <th class="text-center"><img src={{item.produto.imagem}} width="20%" alt="">
+                                        </th>
+                                        <th class="text-center">{{item.produto.nome}} - MI Ice</th>
+                                        <th class="text-center">{{item.quantidade}}</th>
+                                        <th class="text-center">
+                                            {{item.produto.precoDesconto.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}
+                                        </th>
+                                </thead>
+                            </table>
+
+                            <br>
+
+                            <div class="row mb-5" *ngIf="pedido != undefined">
+                                <div class="card col" style="margin-top: 10px;" style="width: 30rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Endereço de entrega</h5>
+                                        <p class="card-text">
+                                            <app-endereco *ngIf="principalEndereco != null"
+                                                [endereco]="principalEndereco"></app-endereco>
+                                        </p>
+                                        <h5 class="card-title">Opção de entrega</h5>
+                                        <p class="card-text" *ngIf="pedido.vlFrete == 15">Frete normal - Até 7 dias
+                                            úteis - R$15,00</p>
+                                        <p class="card-text" *ngIf="pedido.vlFrete == 30">Frete rápido - 2 dias úteis -
+                                            R$30,00</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="card col ml-3" style="margin-top: 10px;"
+                                    style="width: 30rem; height: 10rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Método de pagamento</h5>
+                                        <h6><strong>Pago com Cartão de Crédito</strong></h6>
+                                        <br>
+                                        <p class="card-text">Valor total do pedido:
+                                            {{(pedido.vlTotal + pedido.vlFrete).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

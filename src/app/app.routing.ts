@@ -3,6 +3,7 @@ import {Routes, RouterModule} from '@angular/router';
 import {BlankTemplateComponent} from './template/blank-template.component';
 import {LeftNavTemplateComponent} from './template/left-nav-template.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import { DetalhesPedidoComponent } from './pedidos/detalhes-pedido/detalhes-pedido.component';
 
 export const routes: Routes = [{
   path: '',
@@ -12,14 +13,14 @@ export const routes: Routes = [{
   path: '',
   component: LeftNavTemplateComponent,
   data: {
-    title: 'Angular Admin Template'
+    title: ''
   },
   children: [
     {
       path: 'dashboard',
       loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
       data: {
-        title: 'Dashboard Page'
+        title: 'Dashboard'
       },
     },
     
@@ -34,14 +35,21 @@ export const routes: Routes = [{
       path: 'pedidos',
       loadChildren: () => import('./pedidos/pedidos.module').then(m => m.PedidosModule),
       data: {
-        title: 'Pedidos Page'
+        title: 'Pedidos'
+      },
+    },
+    {
+      path: 'detalhes-pedido',
+      component: DetalhesPedidoComponent,
+      data: {
+        title: 'Detalhes do Pedido'
       },
     },
     {
       path: 'categoria',
       loadChildren: () => import('./categoria/categoria.module').then(m => m.CategoriaModule),
       data: {
-        title: 'Categoria Page'
+        title: 'Categoria'
       },
     },
   ]
@@ -67,7 +75,7 @@ export const routes: Routes = [{
   path: 'produtos',
   component: LeftNavTemplateComponent,
   data: {
-    title: 'Tables'
+    title: 'Cadastrar Novo Produto'
   },
   children: [
     {
