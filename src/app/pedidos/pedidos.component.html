@@ -19,12 +19,10 @@
                   <!-- <h5 style="margin-bottom: -20px;" class="p-2">Pesquisar Cliente:</h5> -->
                   <small class="text-muted p-3">Pesquise ultilizando ID_Cliente, ID_Pedido ou DT_Pedido</small>
                   <div style="margin-top: 10px;" class="input-group custom-search-form">
-                    <input type="text" class="form-control" placeholder="Pesquisar cliente...">
+                    <input type="text" class="form-control" placeholder="Pesquisar cliente..." [(ngModel)]="filter">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button"> <i class="fa fa-search"></i> </button>
                     </span>
-                  </div>
-                  <!-- /input-group -->
+                  </div>                  <!-- /input-group -->
                 </div>
               </div>
               <div class="table-responsive">
@@ -46,7 +44,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let pedido of pedidos">
+                    <tr *ngFor="let pedido of pedidos  | filter:filter; let i = index">
                       <td>
                         <img class="non-responsive img-circle" src="/assets/images/caixa--png.png" alt="" width="52">
                       </td>

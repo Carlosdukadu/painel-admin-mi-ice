@@ -14,6 +14,7 @@ export class PedidosComponent implements OnInit {
   pedidos: Pedido[] = []
   formStatus: FormGroup
   status: any
+  filter: string;
 
   constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
     this.buscarPedidos()
