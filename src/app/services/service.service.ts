@@ -5,7 +5,8 @@ import { Pedido } from 'app/Models/Pedido';
 import { Observable } from 'rxjs';
 import { Categoria } from 'app/Models/Categoria';
 import { FormGroup } from '@angular/forms';
-
+import { Endereco } from 'app/Models/Endereco';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -82,4 +83,23 @@ export class ServiceService {
   alterarStatus(pedido: Pedido){
     return this.http.put("api/pedido/status", pedido)
   }
+
+  public getPedido(id: number){
+    let url = this.http.get<Pedido>("http://localhost:8080/ecommerce/pedido/selecionado/" + id);
+    return url.pipe(
+      map(
+        data => data
+      )
+    )
+  }
+
+  public getEndereco(id: number){
+    let url = this.http.get<Endereco>("http://localhost:8080/ecommerce/endereco/selecionado/" + id);
+    return url.pipe(
+      map(
+        data => data
+      )
+    )
+  }
+  
 }

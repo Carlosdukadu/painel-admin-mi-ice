@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServiceService } from 'app/services/service.service';
 import { Pedido } from 'app/Models/Pedido';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pedidos',
@@ -14,7 +15,7 @@ export class PedidosComponent implements OnInit {
   formStatus: FormGroup
   status: any
 
-  constructor(private service: ServiceService, private fb: FormBuilder) {
+  constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
     this.buscarPedidos()
   }
 
@@ -36,6 +37,10 @@ export class PedidosComponent implements OnInit {
       }
       console.log(this.status);
       
+    }
+
+    pedidoSelecionado(pedido) {
+      this.router.navigate(['/detalhes-pedido', pedido])
     }
 
   ngOnInit(): void {
